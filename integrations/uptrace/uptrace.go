@@ -7,7 +7,6 @@ import (
 	"github.com/peruri-dev/inatrace/models"
 	"go.opentelemetry.io/otel/trace"
 
-	"github.com/uptrace/uptrace-go/uptrace"
 	uptracego "github.com/uptrace/uptrace-go/uptrace"
 )
 
@@ -34,7 +33,7 @@ func InitTracerUP(serviceName string, serviceVersion string) models.CustomTraceP
 		uptracego.WithServiceVersion(serviceVersion),
 	)
 
-	return &UPTraceProvider{uptrace.TracerProvider()}
+	return &UPTraceProvider{uptracego.TracerProvider()}
 }
 
 // ExtractTraceSpanID
