@@ -2,7 +2,6 @@ package octrace
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"log/slog"
 	"time"
@@ -65,8 +64,6 @@ func InitTracerOC(serviceName string, serviceVersion string) models.CustomTraceP
 
 	otel.SetTracerProvider(tracerprovider)
 	//otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
-
-	fmt.Println(exporter)
 
 	return &OCTraceProvider{tracerprovider}
 }
