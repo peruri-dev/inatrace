@@ -23,7 +23,7 @@ func (tp *UPTraceProvider) Shutdown(ctx context.Context) error {
 	return nil
 }
 
-func InitTracerUP(serviceName string, serviceVersion string) models.CustomTraceProvider {
+func InitTracer(serviceName string, serviceVersion string) models.CustomTraceProvider {
 	// Configure OpenTelemetry with sensible defaults. and call otel.SetTracerProvider()
 	uptracego.ConfigureOpentelemetry(
 		// copy your project DSN here or use UPTRACE_DSN env var
