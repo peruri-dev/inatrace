@@ -3,6 +3,7 @@ package uptrace
 import (
 	"context"
 	"log/slog"
+	"os"
 
 	"github.com/peruri-dev/inatrace/models"
 	"go.opentelemetry.io/otel/trace"
@@ -31,6 +32,7 @@ func InitTracer(serviceName string, serviceVersion string) models.CustomTracePro
 
 		uptracego.WithServiceName(serviceName),
 		uptracego.WithServiceVersion(serviceVersion),
+		uptracego.WithDeploymentEnvironment(os.Getenv("ENV")),
 	)
 
 	return &UPTraceProvider{uptracego.TracerProvider()}
