@@ -58,7 +58,7 @@ func ExtractTraceSpanID(ctx context.Context) []slog.Attr {
 		spanID = spanCtx.SpanID().String()
 	}
 
-	attrs = append(attrs, slog.String("trace.id", traceID), slog.String("transaction.id", spanID))
+	attrs = append(attrs, slog.String("trace_id", traceID), slog.String("span_id", spanID))
 
 	return attrs
 }
