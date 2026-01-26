@@ -25,6 +25,13 @@ func (tp *UPTraceProvider) Shutdown(ctx context.Context) error {
 }
 
 func InitTracer(serviceName string, serviceVersion string) models.CustomTraceProvider {
+	if os.Getenv("UPTRACE_DSN") != "" {
+		os.Unsetenv("UPTRACE_DISABLED")
+		slog.Info("enable uptrace", slog.String("dsn", os.Getenv("UPTRACE_DSN")))
+	} else {
+		os.Setenv("UPTRACE_DISABLED", "yes")
+	}
+
 	// Configure OpenTelemetry with sensible defaults. and call otel.SetTracerProvider()
 	uptracego.ConfigureOpentelemetry(
 		// copy your project DSN here or use UPTRACE_DSN env var
