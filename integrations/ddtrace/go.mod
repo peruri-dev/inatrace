@@ -3,7 +3,7 @@ module github.com/peruri-dev/inatrace/integrations/ddtrace
 go 1.23.2
 
 require (
-	github.com/peruri-dev/inatrace v1.0.0
+	github.com/peruri-dev/inatrace v1.1.1
 	go.opentelemetry.io/otel v1.31.0
 	go.opentelemetry.io/otel/trace v1.31.0
 	gopkg.in/DataDog/dd-trace-go.v1 v1.69.1

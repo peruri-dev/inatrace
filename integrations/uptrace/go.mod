@@ -3,7 +3,7 @@ module github.com/peruri-dev/inatrace/integrations/uptrace
 go 1.25.0
 
 require (
-	github.com/peruri-dev/inatrace v1.0.0
+	github.com/peruri-dev/inatrace v1.1.1
 	github.com/uptrace/uptrace-go v1.37.0
 	go.opentelemetry.io/otel/trace v1.37.0
 )

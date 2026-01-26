@@ -3,7 +3,7 @@ module github.com/peruri-dev/inatrace/integrations/estrace
 go 1.23.2
 
 require (
-	github.com/peruri-dev/inatrace v1.0.0
+	github.com/peruri-dev/inatrace v1.1.1
 	go.elastic.co/apm/module/apmotel/v2 v2.6.2
 	go.elastic.co/apm/v2 v2.6.2
 	go.opentelemetry.io/otel v1.31.0
