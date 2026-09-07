@@ -46,6 +46,7 @@ func InitTracerStdout() models.CustomTraceProvider {
 	return tp
 }
 
+// ExtractTraceSpanID
 func ExtractTraceSpanID(ctx context.Context) []slog.Attr {
 	span := trace.SpanFromContext(ctx)
 	if !span.IsRecording() {
@@ -54,16 +55,18 @@ func ExtractTraceSpanID(ctx context.Context) []slog.Attr {
 
 	attrs := []slog.Attr{}
 	spanCtx := span.SpanContext()
+	traceID := ""
+	spanID := ""
 
 	if spanCtx.HasTraceID() {
-		traceID := spanCtx.TraceID().String()
-		attrs = append(attrs, slog.String("trace_id", traceID))
+		traceID = spanCtx.TraceID().String()
 	}
 
 	if spanCtx.HasSpanID() {
-		spanID := spanCtx.SpanID().String()
-		attrs = append(attrs, slog.String("span_id", spanID))
+		spanID = spanCtx.SpanID().String()
 	}
+
+	attrs = append(attrs, slog.String("trace_id", traceID), slog.String("span_id", spanID))
 
 	return attrs
 }
